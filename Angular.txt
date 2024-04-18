@@ -1,0 +1,41 @@
+1. Instalar Node.js y el IDE VS code
+2. Las versiones son angular 17 y node 20
+3. Abrir el IDE VS code y abrir una terminal
+4. Localizar una ruta donde estará el proyecto
+5. Ejecutar 
+ng new mylibrary --no-standalone
+
+Esto se demora mientras crea las librerias del node_module 
+responder preguntas
+
+6. Entrar al proyecto desde el IDE y desde consola, ahora digitar 
+ng serve
+
+7. Se compila y confirmar desde el browser con localhost:4200
+
+*****
+8. Crear los componentes list y add para book para ello digite desde la terminal 
+ng g component /components/add-book
+ng g component /components/list-book
+ng g class /model/book	 
+ng g service /services/library
+
+9. Adicionar la version 16 de bootstrap
+ng add @ng-bootstrap/ng-bootstrap
+
+10. Crear codigo en la clase book y deshabilitar en tsconfig la compilación estricta para creacion de la clase
+
+11. Copiar el código html en el app component y modificar el archivo app.routes.ts / app-routing.module.ts
+
+12. AppModule add FormsModule y HttpClientModule en imports
+
+13. Actualizar el archivo library.services.ts con el crud consumir al backend
+
+14. Copiar html y ts para cada componente
+
+
+
+
+
+
+
