@@ -1,0 +1,107 @@
+
+<div class="container">
+    <div class="card">
+      <h3 class="text-center">Book List</h3>
+      <div class="card-body">
+      <div class="form-group form-inline">
+      </div>
+        <table class="table table-striped">
+          <thead>
+            <th>ISBN</th>
+            <th>TITLE</th>
+            <th>AUTHOR</th>
+            <th>NUMBER OF PAGES</th>
+            <th></th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of bookSet; let i = index " >
+              <td>{{item.isbn}}</td>
+              <td>{{item.title}}</td>
+              <td>{{item.author}}</td>
+              <td>{{item.numberpages}}</td>
+              <td>
+                <button class="btn btn-info btn-sm"    
+                (click)="triggerModal(modalData, item)">
+                  Edit </button>
+                  &nbsp;
+                <button class='btn btn-danger btn-sm' (click)="deleteBook(item.isbn)" >
+                  Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+    </div>
+  </div>
+  
+  
+  <ng-template #modalData let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Edit Book</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">X</span>
+      </button>
+    </div>
+    <div class="modal-body">
+  
+      <div style="width: 400px; margin: auto;">
+        <div class="submit-form">
+            <div class="form-group">
+              <label for="isbn">ISBN</label>
+              <input
+                disabled
+                type="text"
+                class="form-control"
+                id="isbn"
+                required
+                [(ngModel)]="currentBook.isbn"
+                name="isbn"
+              />
+            </div>
+            <div class="form-group">
+              <label for="title">TITLE</label>
+              <input
+                type="text"
+                class="form-control"
+                id="title"
+                required
+                [(ngModel)]="currentBook.title"
+                name="title"
+              />
+            </div>
+            <div class="form-group">
+                <label for="author">AUTHOR</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="author"
+                  required
+                  [(ngModel)]="currentBook.author"
+                  name="author"
+                />
+            </div>
+            <div class="form-group">
+              <label for="numberpages">NUMBER OF PAGES</label>
+              <input
+                type="text"
+                class="form-control"
+                id="numberpages"
+                required
+                [(ngModel)]="currentBook.numberpages"
+                name="numberpages"
+              />
+          </div>
+          </div>
+      </div>
+    
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-success" 
+      
+      (click)="updateBook()"
+      
+      (click)="modal.close('Save click')">Save</button>
+    </div>
+  </ng-template>
+  
